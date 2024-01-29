@@ -8,12 +8,10 @@ pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesse
 
 def preprocess_image(image_path):
 
+    # Cargar la imagen
     script_dir = os.path.dirname(os.path.abspath(__file__))
     image = Image.open(os.path.join(
-        script_dir, 'img\\186477020240252736 (7).jpg'))
-
-    # Cargar la imagen
-    # image = Image.open(image_path)
+        script_dir, image_path))
 
     # Convertir la imagen a escala de grises
     image = image.convert('L')
@@ -43,7 +41,7 @@ def recognize_digits(image):
 
 if __name__ == "__main__":
     # Ruta de la imagen del medidor de luz
-    image_path = r"C:/Users/Junior/Desktop/lds-project/recognition-lds/img/6981420240238232.jpg"
+    image_path = "img\\186477020240252736 (7).jpg"
 
     # Preprocesar la imagen
     preprocessed_image = preprocess_image(image_path)
