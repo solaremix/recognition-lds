@@ -35,7 +35,7 @@ def recognize_digits(image):
 
 if __name__ == "__main__":
     # Ruta de la imagen del medidor de luz
-    image_path = 'images/1974545202402531533.jpg'
+    image_path = 'images/1210816202402531954.jpg'
     
     # Preprocesar la imagen
     preprocessed_image = preprocess_image(image_path)

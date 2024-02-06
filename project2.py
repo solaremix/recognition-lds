@@ -3,8 +3,6 @@ import pytesseract
 import numpy as np
 
 
-import cv2
-import pytesseract
 
 # Función para preprocesar la imagen
 def preprocess_image(image_path):
