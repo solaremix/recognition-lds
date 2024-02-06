@@ -35,7 +35,7 @@ def recognize_digits(image):
 
 if __name__ == "__main__":
     # Ruta de la imagen del medidor de luz
-    image_path = 'images/401881920240238230.jpg'
+    image_path = 'images/1974545202402531533.jpg'
     
     # Preprocesar la imagen
     preprocessed_image = preprocess_image(image_path)
@@ -47,4 +47,3 @@ if __name__ == "__main__":
         if recognized_text:
             # Imprimir el texto reconocido en la consola
             print(f"Texto reconocido en la imagen {image_path}: {recognized_text}")
-
