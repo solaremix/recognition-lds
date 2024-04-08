@@ -1,7 +1,8 @@
 from PIL import Image, ImageEnhance, ImageFilter
 import pytesseract
+import re
 
-# Función para preprocesar la imagen
+# Función para preprocesar la imagen y mejorar su calidad
 def preprocess_image(image_path, contrast_factor=2.0):
     try:
         # Cargar la imagen
@@ -28,7 +29,10 @@ def recognize_digits(image):
         # Utilizar Tesseract para realizar OCR en la imagen y obtener el texto
         text = pytesseract.image_to_string(image, lang='eng', config='--psm 6')
         
-        return text
+        # Filtrar solo los dígitos numéricos usando expresiones regulares
+        recognized_digits = re.sub(r'\D', '', text)
+        
+        return recognized_digits
     except pytesseract.TesseractError:
         print("Error: No se pudo reconocer los dígitos")
         return None
@@ -42,8 +46,8 @@ if __name__ == "__main__":
     
     if preprocessed_image:
         # Reconocer dígitos en la imagen preprocesada
-        recognized_text = recognize_digits(preprocessed_image)
+        recognized_digits = recognize_digits(preprocessed_image)
         
-        if recognized_text:
-            # Imprimir el texto reconocido en la consola
-            print(f"Texto reconocido en la imagen {image_path}: {recognized_text}")
+        if recognized_digits:
+            # Imprimir los dígitos reconocidos en la consola
+            print(f"Dígitos reconocidos en la imagen {image_path}: {recognized_digits}")
